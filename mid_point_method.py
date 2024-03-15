@@ -3,35 +3,27 @@ import scipy as sp
 import matplotlib.pyplot as plt
 import math
 
+def generate_point(rng,radius):
+    point = []
+    x = rng.uniform(-radius, radius)
+    y = rng.uniform(-radius, radius)
+    while x**2 + y**2 > radius**2:
+        x = rng.uniform(-radius, radius)
+        y = rng.uniform(-radius, radius)
+    point.append(x)
+    point.append(y)
+    return point
+
 def mid_point_method () :
     rng = np.random.default_rng()
-
-    # Let radius be 1 unit.
-
-    radius = 1
-
-    
+    RADIUS = 1
     # Random Mid-Point Method
     # 
     # Let us draw the chord in such a way that a random point is chosen inside the circle, then a chord is drawn perpendicular to the line joining center and the the point, passing through the point. Then any chord with mid point lying more than half the radius from center is greater than equilateral triangle.
-
-
-    def generate_point():
-        point = []
-        x = rng.uniform(-radius, radius)
-        y = rng.uniform(-radius, radius)
-        while x**2 + y**2 > radius**2:
-            x = rng.uniform(-radius, radius)
-            y = rng.uniform(-radius, radius)
-        point.append(x)
-        point.append(y)
-        return point
-
-
     n = 1000
     Sample = []
     for i in range(n):
-        Sample.append(generate_point())
+        Sample.append(generate_point(rng,RADIUS))
 
 
     distance = []
