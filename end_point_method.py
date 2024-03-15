@@ -3,13 +3,15 @@ import scipy as sp
 import matplotlib.pyplot as plt
 import math
 from numpy import sin, cos, pi, linspace
+RADIUS = 1
 
+def generate_angle(rng):
+    angle = rng.uniform(-pi, pi)
+    return angle
 
 def end_point_method():
     rng = np.random.default_rng()
-    # Let radius be 1 unit.
-
-    radius = 1
+    # Let radius be 1 unit
 
     # The Random Endpoint Method
     # 
@@ -62,22 +64,50 @@ def end_point_method():
     plt.ylim(-1.5, 1.5)
     plt.gca().set_aspect('equal')
     plt.show()
-
-
-    def generate_angle():
-        angle = rng.uniform(-pi, pi)
-        return angle
-
-
+    
     m = 1000
     Sample = []
     for i in range(m):
-        Sample.append(generate_angle())
+        Sample.append(generate_angle(rng))
 
 
     distribution = []
     for i in range(m):
         distribution.append(Sample[i] < pi/3 and Sample[i] > -pi/3)
+
+    #plotting chords
+
+    #draw circle
+    r = 1
+    angles = linspace(0 * pi, 2 * pi, 100)
+    xs = r * cos(angles)
+    ys = r * sin(angles)
+
+    for i in range(m):
+        ref_point = (-RADIUS, 0)
+        theta = Sample[i]
+        point = RADIUS*(np.cos(theta),np.sin(theta))
+        colour = 'red'
+        if ( distribution[i]) :
+            colour = 'blue'
+        plt.plot([point[0],ref_point[0]],[point[1],ref_point[1]], color = colour, lw = 0.5)
+
+    #draw triangle
+    plt.plot(xs, ys, color = 'black')
+    # plt.plot(r * cos(pi /3), r * sin(pi / 3), marker = 'o', color = 'black')
+    # plt.plot(r * cos(-pi /3), r * sin(-pi / 3), marker = 'o', color = 'black')
+    # plt.plot(r * cos(pi), r * sin(pi), marker = 'o', color = 'black')
+    plt.plot([-1, r * cos(pi /3)], [0, r * sin( pi / 3)], color = "black")
+    plt.plot([-1, r * cos(-pi /3)], [0, r * sin(-pi / 3)], color = "black")
+    plt.plot([r * cos(pi /3), r * cos(pi /3)], [r * sin(-pi / 3), r * sin( pi / 3)], color = "black")
+
+    #plt.plot([-1, r * cos(pi / 6)], [0, r * sin(pi / 6)], color = "blue")
+
+    plt.xlim(-1.5*RADIUS, 1.5*RADIUS)
+    plt.ylim(-1.5*RADIUS, 1.5*RADIUS)
+    plt.gca().set_aspect('equal')
+    plt.axis('off')
+    plt.show()
 
 
     avg = [sum(distribution[:i])/i for i in range(1,m+1)]

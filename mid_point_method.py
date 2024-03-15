@@ -28,7 +28,7 @@ def draw_chord(point, radius, color = "black"):
     theta = math.acos(dist/radius)
     point_1 = rotate_cartesian(projected_point, -theta)
     point_2 = rotate_cartesian(projected_point, theta)
-    plt.plot([point_1[0], point_2[0]], [point_1[1], point_2[1]], color = color)
+    plt.plot([point_1[0], point_2[0]], [point_1[1], point_2[1]], color = color, lw = 0.5)
 
 def mid_point_method() :
     rng = np.random.default_rng()
@@ -68,9 +68,9 @@ def mid_point_method() :
 
     #draw triangle
     plt.plot(xs, ys, color = 'black')
-    plt.plot(r * cos(pi /3), r * sin(pi / 3), marker = 'o', color = 'black')
-    plt.plot(r * cos(-pi /3), r * sin(-pi / 3), marker = 'o', color = 'black')
-    plt.plot(r * cos(pi), r * sin(pi), marker = 'o', color = 'black')
+    # plt.plot(r * cos(pi /3), r * sin(pi / 3), marker = 'o', color = 'black')
+    # plt.plot(r * cos(-pi /3), r * sin(-pi / 3), marker = 'o', color = 'black')
+    # plt.plot(r * cos(pi), r * sin(pi), marker = 'o', color = 'black')
     plt.plot([-1, r * cos(pi /3)], [0, r * sin( pi / 3)], color = "black")
     plt.plot([-1, r * cos(-pi /3)], [0, r * sin(-pi / 3)], color = "black")
     plt.plot([r * cos(pi /3), r * cos(pi /3)], [r * sin(-pi / 3), r * sin( pi / 3)], color = "black")
