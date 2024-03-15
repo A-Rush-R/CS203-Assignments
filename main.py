@@ -5,7 +5,7 @@ from end_point_method import end_point_method
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python main.py <operation>")
+        print("Usage: python main.py <method_name>")
         return
 
     operation = sys.argv[1]
@@ -15,6 +15,10 @@ def main():
     elif operation == 'mid_point':
         mid_point_method()
     elif operation == "end_point":
+        end_point_method()
+    elif operation == "all" :
+        radial_method()
+        mid_point_method()
         end_point_method()
     else:
         print("Invalid operation. Please provide a valid operation.")
