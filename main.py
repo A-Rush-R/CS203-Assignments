@@ -17,9 +17,9 @@ def main():
     elif operation == "end_point":
         end_point_method()
     elif operation == "all" :
-        radial_method()
         mid_point_method()
         end_point_method()
+        radial_method()
     else:
         print("Invalid operation. Please provide a valid operation.")
 
