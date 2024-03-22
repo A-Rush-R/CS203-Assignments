@@ -13,6 +13,12 @@ This is a source code written in `python`. This can be run on any machine having
 Ensure that the aforementioned interpreter is added to `PATH`
 
 - Go to the directory in which the code is saved 
+- Install the requirements
+```bash
+pip install numpy
+pip install matplotlib
+```
+
 - Run the following command in the *terminal* 
 ```bash
 python birthday_paradox.py

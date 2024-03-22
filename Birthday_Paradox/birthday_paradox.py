@@ -31,7 +31,7 @@ def calculate_minimum_students():
     if p_n == 0:
         k = 366
 
-    print("The minimum number of students required will be:", k)
+    print("The minimum number of students required will be :", k)
 
 def graph():
     # Plotting graph
