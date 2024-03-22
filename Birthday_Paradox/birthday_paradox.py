@@ -5,13 +5,12 @@ import matplotlib.pyplot as plt
 rng = np.random.default_rng()
 
 def calculate_minimum_students():
-    p_limit = float(input("Enter probability that at least two students have the same birthday in %: "))
-    while not (p_limit >= 0 and p_limit <= 100):
-        print("The value must be in the range [0,100] !")
-        p_limit = float(input("Enter probability that at least two students have the same birthday in %: "))
+    p_coincident_birthday = float(input("Enter probability that at least two students have the same birthday : "))
+    while not (p_coincident_birthday >= 0 and p_coincident_birthday <= 1):
+        print("The value must be in the range [0,1] !")
+        p_coincident_birthday = float(input("Enter probability that at least two students have the same birthday : "))
     
     # Converts p into a decimal value
-    p_coincident_birthday = p_limit / 100
 
     # Finding the required probability of no two students having the same birthday
     p_n = 1 - p_coincident_birthday
@@ -23,7 +22,7 @@ def calculate_minimum_students():
 
     # Loop along the probability of this not happening
     while ((p_k > p_n) and p_n != 0):
-        # if p_neg is still not small enough, we increase the class strength by one
+        # if p_k is still not small enough, we increase the class strength by one
         p_k = p_k * (365 - k) / 365
         k += 1
 
@@ -31,7 +30,7 @@ def calculate_minimum_students():
     if p_n == 0:
         k = 366
 
-    print("The minimum number of students required will be :", k)
+    print("The minimum number of students required will be : ", k)
 
 def graph():
     # Plotting graph
