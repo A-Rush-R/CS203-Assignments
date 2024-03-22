@@ -14,11 +14,9 @@ Ensure that the aforementioned interpreter is added to `PATH`
 
 - Go to the directory in which the code is saved 
 - Install the requirements
-```bash
-pip install numpy
-pip install matplotlib
+```bash 
+pip install -r requirements.txt
 ```
-
 - Run the following command in the *terminal* 
 ```bash
 python birthday_paradox.py
