@@ -40,7 +40,7 @@ def graph():
     distribution = []
     prob_no_match = 1
     for i in range(n):
-        prob_no_match = prob_no_match * ((365 - i + 1)/365)
+        prob_no_match = prob_no_match * ((365 - i)/365)
         distribution.append(1 - prob_no_match)
 
     plt.title("Birthday Paradox")
