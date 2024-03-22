@@ -18,7 +18,7 @@ k = 1
 # Loop along the probability of this not happening
 while p_k > p_n:
     # if p_neg is still not small enough, we increase the class strength by one
-    k += 1
     p_k = p_k * (365-k)/365
+    k += 1
 
 print(k)
