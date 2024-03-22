@@ -20,6 +20,11 @@ python birthday_paradox.py
 - You will get a prompt to enter the probability `p` and enter required value in the form of a **percentage value**
 - The output `k` will be printed in the terminal
 
+If you want to see a plot of probabilty of atleast two people having the same birthday as number of people increases then run the following command in the *terminal*
+```bash
+python birthday_paradox.py graph
+```
+
 ### Logic
 
 In the class it was already derived that the probability of no two students having the same birthday is given by 
