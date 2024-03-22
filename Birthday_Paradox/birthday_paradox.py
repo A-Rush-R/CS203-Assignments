@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 rng = np.random.default_rng()
 
 def calculate_minimum_students():
-    p_coincident_birthday = float(input("Enter probability that at least two students have the same birthday : "))
+    p_coincident_birthday = float(input("Enter probability that at least two students have the same birthday (in decimal) : "))
     while not (p_coincident_birthday >= 0 and p_coincident_birthday <= 1):
         print("The value must be in the range [0,1] !")
-        p_coincident_birthday = float(input("Enter probability that at least two students have the same birthday : "))
+        p_coincident_birthday = float(input("Enter probability that at least two students have the same birthday (in decimal) : "))
     
     # Converts p into a decimal value
 
