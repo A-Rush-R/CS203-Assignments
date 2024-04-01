@@ -15,4 +15,5 @@ This repository consists of the following submissions &rarr;
 
 1. [Simulation_of_Bertrand’s_Paradox](/Simulation_of_Bertrand’s_Paradox/) 
 2. [Birthday_Paradox](/Birthday_Paradox/)
+3. [Generalized_Monty_Hall_Problem](/Generalized_Monty_Hall_Problem/)
  
