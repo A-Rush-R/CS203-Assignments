@@ -91,5 +91,5 @@ ax2.set_zlabel('P_W/P_T')
 # Add a color bar which maps values to colors.
 fig.colorbar(surf, shrink=0.5, aspect=5)
 
-# plt.savefig("finalplot.png")
+plt.savefig("finalplot.png")
 plt.show()
