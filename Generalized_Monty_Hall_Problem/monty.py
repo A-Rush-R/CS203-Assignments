@@ -17,11 +17,11 @@ def prob_ratio(n, k, num):
 
     win_og = 0
     win_sw = 0
-    for i in range(num):
+    for _ in range(num):
         choice = np.random.randint(0, n)
         if doors[choice] == 'C':
             win_og += 1
-        if choice == n - 1:
+        if choice == n - 1 :
             choice = n - 2
         new_choice = np.random.randint(0, n - 1)
         while new_choice == choice:
