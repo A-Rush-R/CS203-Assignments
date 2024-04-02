@@ -50,7 +50,7 @@ def prob_ratio_exact(n, k):
 
 # Make data for the first surface.
 N = 100
-num = 10000
+num = 5000
 n = np.arange(3, N, 1)
 k = np.arange(1, N - 2, 1)
 n, k = np.meshgrid(n, k)
@@ -92,5 +92,5 @@ ax2.set_zlabel('P_W/P_T')
 fig.colorbar(surf, shrink=0.5, aspect=5)
 
 # plt.savefig("finalplot.png")
-plt.savefig("finalplot10k.png")
+plt.savefig("finalplot.png")
 plt.show()
