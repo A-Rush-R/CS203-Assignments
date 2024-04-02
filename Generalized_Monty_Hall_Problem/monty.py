@@ -66,10 +66,16 @@ ax1.set_title('Plot from Exact Calculation')
 ax1.set_zlim(0.5, 2.5)
 ax1.zaxis.set_major_locator(LinearLocator(10))
 ax1.zaxis.set_major_formatter('{x:.02f}')
+ax1.set_xlabel("n")
+ax1.set_ylabel("k")
+ax1.set_zlabel('P_W/P_T')
 
 ax2.set_zlim(0.5, 2.5)
 ax2.zaxis.set_major_locator(LinearLocator(10))
 ax2.zaxis.set_major_formatter('{x:.02f}')
+ax2.set_xlabel("n")
+ax2.set_ylabel("k")
+ax2.set_zlabel('P_W/P_T')
 
 # Add a color bar which maps values to colors.
 fig.colorbar(surf, shrink=0.5, aspect=5)
