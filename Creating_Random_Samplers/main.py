@@ -6,6 +6,13 @@ from scipy.stats import norm
 A = 10
 B = 50
 
+A = float(input("Enter the value of A : "))
+B = float(input("Enter the value of B : "))
+
+while B < A :
+    print ("The value of B must be greater A !")
+    B = float(input("Enter the value of B : "))
+
 # define mean and standard deviation
 # assuming that [A , B] is the range [mean - std, mean + std]
 MEAN = (A + B) / 2
@@ -22,6 +29,7 @@ random_numbers = np.random.rand(N)
 gaussian_random_numbers = []
 for i in range(N):
     # percent point function, given a CDF value, returns the value of the RV (from normal distribution) at which would lead to this CDF
+    # loc takes the mean of the distribution
     gaussian_random_numbers.append(norm.ppf(random_numbers[i], loc= MEAN, scale = STD ))
 
 # Plot A histogram using the random numbers generated in step 2
