@@ -2,22 +2,34 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
-# Define the interval [a, b]
-a = 10
-b = 50
+# Define the interval [A, B]
+A = 10
+B = 50
 
-# Generate random numbers from a uniform distribution within the interval [0,1]
-n = 10000
-random_numbers = np.random.rand(n)
+# define mean and standard deviation
+# assuming that [A , B] is the range [mean - std, mean + std]
+MEAN = (A + B) / 2
+STD =  (B - A) / 2
 
-# Calculate the inverse of the cumulative distribution function (CDF) of the Gaussian Distribution for each random number
-gaussian_random_numbers = np.zeros(n)
-for i in range(n):
-    gaussian_random_numbers[i] = norm.ppf(random_numbers[i], loc=(a+b)/2, scale=(b-a)/6)
+# define bins for plotting the histogram
+BINS = 100
 
-# Plot a histogram using the random numbers generated in step 2
-plt.hist(gaussian_random_numbers, bins=100)
-plt.title('Gaussian Distribution within the interval [{}, {}]'.format(a, b))
+# Sample numbers from A uniform distribution
+N = 10000
+random_numbers = np.random.rand(N)
+
+# Calculate the inverse of the cumulative distribution function (CDF) of the Gaussian Distribution for each number
+gaussian_random_numbers = []
+for i in range(N):
+    # percent point function, given a CDF value, returns the value of the RV (from normal distribution) at which would lead to this CDF
+    gaussian_random_numbers.append(norm.ppf(random_numbers[i], loc= MEAN, scale = STD ))
+
+# Plot A histogram using the random numbers generated in step 2
+print ("Mean of sampled distribution is" , np.mean(gaussian_random_numbers))
+print ("Variance of sampled distribution is", np.std(gaussian_random_numbers))
+plt.hist(gaussian_random_numbers, bins = BINS)
+plt.title('Gaussian Distribution within the interval [{}, {}]'.format(A, B))
 plt.xlabel('Random Number')
 plt.ylabel('Frequency')
+plt.savefig("plot.png")
 plt.show()
