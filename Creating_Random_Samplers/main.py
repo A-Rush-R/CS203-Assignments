@@ -35,12 +35,13 @@ N = 100000
 random_numbers = np.random.uniform(A, B, N)
 
 # Calculate the inverse of the cumulative distribution function (CDF) of the Gaussian Distribution for each number
-gaussian_random_numbers = norm.ppf(random_numbers, loc=MEAN, scale=STD)
+gaussian_random_numbers = norm.ppf(random_numbers, loc = MEAN, scale = STD)
 
 # Plot a histogram using the random numbers generated
 print("Mean of sampled distribution is", np.mean(gaussian_random_numbers))
 print("Standard deviation of sampled distribution is", np.std(gaussian_random_numbers))
-plt.hist(gaussian_random_numbers, bins=BINS)
+
+plt.hist(gaussian_random_numbers, bins = BINS)
 plt.title('Gaussian Distribution within the interval [{}, {}]'.format(A, B))
 plt.xlabel('Random Number')
 plt.ylabel('Frequency')
