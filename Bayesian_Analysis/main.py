@@ -49,6 +49,7 @@ for i, (a, b) in enumerate(priors):
     axes[i].legend()
 
 plt.tight_layout()
+plt.savefig('plots.png')  # Save the plot in the same directory
 plt.show()
 
 # Sort cases based on closeness to MLE and create a list of distribution parameters, MLE, and MAP
