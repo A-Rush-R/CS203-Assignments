@@ -13,10 +13,14 @@ tails_count = len(observation) - heads_count
 priors = [(2, 5), (5, 2), (1, 1), (2, 2)]
 closeness_list = []
 
+# Create a figure and subplots
+fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+axes = axes.flatten()
+
 # Plot the posterior and prior distributions
 x = np.linspace(0, 1, 1000)
 
-for a, b in priors:
+for i, (a, b) in enumerate(priors):
     posterior_a = a + heads_count
     posterior_b = b + tails_count
     
@@ -24,14 +28,11 @@ for a, b in priors:
     prior = beta.pdf(x, a, b)
     posterior = beta.pdf(x, posterior_a, posterior_b)
     
-    # Create a new figure for each case
-    plt.figure(figsize=(6, 4))
-    
     # Plot the prior distribution
-    plt.plot(x, prior, label=f'Prior: Beta({a}, {b})')
+    axes[i].plot(x, prior, label=f'Prior: Beta({a}, {b})')
     
     # Plot the posterior distribution
-    plt.plot(x, posterior, label=f'Posterior: Beta({posterior_a}, {posterior_b})')
+    axes[i].plot(x, posterior, label=f'Posterior: Beta({posterior_a}, {posterior_b})')
     
     # Calculate MLE and MAP estimates
     mle = heads_count / len(observation)
@@ -39,15 +40,16 @@ for a, b in priors:
     closeness_list.append((abs(mle - map_estimate), (a, b), mle, map_estimate))
     
     # Plot MLE and MAP estimates
-    plt.axvline(x=mle, color='black', linestyle='--', label=f'MLE ({mle:.2f})')
-    plt.axvline(x=map_estimate, color='red', linestyle='--', label=f'MAP ({map_estimate:.2f})')
+    axes[i].axvline(x=mle, color='black', linestyle='--', label=f'MLE ({mle:.2f})')
+    axes[i].axvline(x=map_estimate, color='red', linestyle='--', label=f'MAP ({map_estimate:.2f})')
     
-    plt.xlabel('Bias')
-    plt.ylabel('Probability Density')
-    plt.title(f'Prior and Posterior Distributions - Case: Beta({a}, {b})')
-    plt.legend()
-    plt.tight_layout()
-    plt.show()
+    axes[i].set_xlabel('Bias')
+    axes[i].set_ylabel('Probability Density')
+    axes[i].set_title(f'Prior and Posterior Distributions - Case: Beta({a}, {b})')
+    axes[i].legend()
+
+plt.tight_layout()
+plt.show()
 
 # Sort cases based on closeness to MLE and create a list of distribution parameters, MLE, and MAP
 sorted_cases = sorted(closeness_list, key=lambda x: x[0])
